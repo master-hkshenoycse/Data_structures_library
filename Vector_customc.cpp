@@ -24,6 +24,7 @@ class my_vector{
 
 
     void resize_cap(int n_l){
+        
         int *tmp_data=new int[n_l];
         for(int i=0;i<l_c;i++)tmp_data[i]=data[i];
         delete[] data;
@@ -36,8 +37,8 @@ class my_vector{
 
 
     void push(int v){
-        if(l_c==len){
-            resize_cap(len*2);
+        if(l_c>=len){
+            resize_cap(l_c*2);
         }
         data[l_c++]=v;
     }
@@ -61,10 +62,7 @@ class my_vector{
 
 int main(){
     my_vector x=my_vector(25);
-    x.push(6);
-    x.push(7);
-    x.pop_back();
-    x.push(9);
+    for(int i=0;i<=5000;i++)x.push(i);
     x.print_vector();
 
     
